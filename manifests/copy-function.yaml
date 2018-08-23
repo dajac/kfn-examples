@@ -1,0 +1,16 @@
+apiVersion: kfn.dajac.io/v1alpha1
+kind: Function
+metadata:
+  name: copy-function
+spec:
+  replicas: 1
+  image: dajac/kfn-examples:0.0.5
+  class: io.dajac.kfn.examples.CopyFunction
+  
+  input: dajac.source
+  inputKeyDeserializer: bytes
+  inputValueDeserializer: bytes
+  
+  output: dajac.destination
+  outputKeySerializer: bytres
+  outputValueSerializer: bytes

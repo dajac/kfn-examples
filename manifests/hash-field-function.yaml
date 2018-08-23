@@ -1,0 +1,27 @@
+apiVersion: kfn.dajac.io/v1alpha1
+kind: Function
+metadata:
+  name: hash-field-function
+spec:
+  replicas: 1
+  image: dajac/kfn-examples:0.0.5
+  class: io.dajac.kfn.examples.HashFieldFunction
+  
+  input: kfn.users.avro
+  inputKeyDeserializer: string
+  inputValueDeserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+  
+  output: kfn.users.avro.hashed
+  outputKeySerializer: string
+  outputValueSerializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+  function:
+    field: number
+    algorythm: SHA-256
+
+  consumer:
+    schema.registry.url: "http://schema-registry-service:8081"
+
+  producer:
+    schema.registry.url: "http://schema-registry-service:8081"
+  

@@ -1,0 +1,24 @@
+apiVersion: kfn.dajac.io/v1alpha1
+kind: Function
+metadata:
+  name: json-avro-converter-function
+spec:
+  replicas: 1
+  image: dajac/kfn-examples:0.0.5
+  class: io.dajac.kfn.examples.JsonToAvroFunction
+  
+  input: kfn.users.json
+  inputKeyDeserializer: bytes
+  inputValueDeserializer: string
+  
+  output: kfn.users.avro
+  outputKeySerializer: string
+  outputValueSerializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+  function:
+    key: name
+    schema: "{\"type\": \"record\",\"name\": \"User\",\"namespace\": \"example\",\"fields\": [{\"name\": \"name\", \"type\": \"string\"},{\"name\": \"number\", \"type\": \"string\"}]}"
+  
+  producer:
+    schema.registry.url: "http://schema-registry-service:8081"
+  
