@@ -4,7 +4,7 @@ metadata:
   name: hash-field-function
 spec:
   replicas: 1
-  image: dajac/kfn-examples:0.0.5
+  image: dajac/kfn-examples:0.0.6
   class: io.dajac.kfn.examples.HashFieldFunction
   
   input: kfn.users.avro

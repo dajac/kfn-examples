@@ -6,13 +6,13 @@
 
     <groupId>io.dajac.kfn</groupId>
     <artifactId>kfn-examples</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.6</version>
 
     <dependencies>
         <dependency>
             <groupId>io.dajac.kfn</groupId>
             <artifactId>kfn-invoker</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.2</version>
         </dependency>
         <dependency>
             <groupId>io.confluent</groupId>
