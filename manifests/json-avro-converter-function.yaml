@@ -17,7 +17,16 @@ spec:
 
   function:
     key: name
-    schema: "{\"type\": \"record\",\"name\": \"User\",\"namespace\": \"example\",\"fields\": [{\"name\": \"name\", \"type\": \"string\"},{\"name\": \"number\", \"type\": \"string\"}]}"
+    schema: |- 
+      {
+        "type": "record",
+        "name": "User",
+        "namespace": "example",
+        "fields": [
+          {"name": "name", "type": "string"},
+          {"name": "number", "type": "string"}
+        ]
+      }
   
   producer:
     schema.registry.url: "http://schema-registry-service:8081"
