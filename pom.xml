@@ -13,6 +13,7 @@
             <groupId>io.dajac.kfn</groupId>
             <artifactId>kfn-invoker</artifactId>
             <version>0.0.2</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.confluent</groupId>
@@ -62,8 +63,8 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/libs</outputDirectory>
-                            <includeScope>runtime</includeScope>
                             <prependGroupId>true</prependGroupId>
+                            <excludeScope>provided</excludeScope>
                         </configuration>
                     </execution>
                 </executions>
