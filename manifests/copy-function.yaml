@@ -7,10 +7,10 @@ spec:
   image: dajac/kfn-examples:0.0.6
   class: io.dajac.kfn.examples.CopyFunction
   
-  input: dajac.source
+  input: kfn.source
   inputKeyDeserializer: bytes
   inputValueDeserializer: bytes
   
-  output: dajac.destination
-  outputKeySerializer: bytres
+  output: kfn.destination
+  outputKeySerializer: bytes
   outputValueSerializer: bytes
